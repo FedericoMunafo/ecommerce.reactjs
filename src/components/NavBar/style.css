@@ -6,6 +6,7 @@
     background-color: gray;
     justify-content:space-between;
     align-items:center;
+    
 }
 ul{
     list-style-type:none;
@@ -18,4 +19,15 @@ li{
     list-style-type:none;
     margin-left: 10px;
     margin-right: 10px;
+}
+.icono{
+    font-size: 2em;
+    color:white;
+}
+.boton{
+    margin-right: 50px;
+}
+
+a{
+    color:white;
 }
