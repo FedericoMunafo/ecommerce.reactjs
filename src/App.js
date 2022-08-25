@@ -7,8 +7,8 @@ function App() {
     <div className="App">
       <NavBar/>
       <div>
-    <h2><ItemListContainer greeting='Bienvenidos a la Tienda de Sweet Nails'/></h2>
-    </div>
+          <h2><ItemListContainer greeting='Bienvenidos a la Tienda de Sweet Nails'/></h2>
+      </div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
