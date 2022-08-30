@@ -2,6 +2,11 @@ import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import logo from './logo.svg';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import ItemCount from './components/ItemCount/ItemCount';
+
+const onAdd = (cantidad)=>{
+  console.log(`Compraste ${cantidad} unidades`);
+}
 function App() {
   return (
     <div className="App">
@@ -11,17 +16,7 @@ function App() {
       </div>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ItemCount initial={1} stock={10} onAdd={onAdd}/>
       </header>
     </div>
   );
