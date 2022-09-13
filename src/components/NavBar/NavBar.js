@@ -1,31 +1,40 @@
 
 import logo from '../../components/SweetNails/LogoSweet.png'
 import './style.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
+import CartButton from '../CardWidget/CartButton';
+
 const NavBar = () => {
     return (
         <div className='navbar-container'>
             <div>
+                <NavLink to='/'>
                 <img width={'100px'} src ={logo} alt="logo-SweetNails-Cuidado-De-Uñas"/>
+                </NavLink>
+           
             </div>
             <div>
                 <nav>
                     <ul>
                         <li>
-                            <a href="#">Inicio</a>
+                            <NavLink to='/'>Inicio</NavLink>
                         </li>
                         <li>
-                            <a href="#">Acerca de</a>
+                            <NavLink to='categoria/producto'>Productos</NavLink>
                         </li>
                         <li>
-                            <a href="#">Contacto</a>
+                            <NavLink to='categoria/servicio'>Servicio</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/contador'>Contador</NavLink>   
                         </li>
                     </ul>
                 </nav>
             </div>
-            <div className="icono">
-                <FontAwesomeIcon icon={faCartShopping} />{""}
+            <div>
+                <NavLink to='/carrito'>
+                    <CartButton />
+                </NavLink>
             </div>
                 <div><button className='boton'>Iniciar Sesión</button>{""}
             </div>

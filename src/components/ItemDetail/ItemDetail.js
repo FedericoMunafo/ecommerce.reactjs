@@ -1,9 +1,12 @@
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { Link } from 'react-router-dom';
+
 
 const ItemDetail = ({dato}) => {
   return (
+  <Link to={`/detalle/${dato.id}`}>
   <Row xs={1} md={2} className="g-4">
     {Array.from({ length: 1 }).map((_, idx) => (
       <Col>
@@ -20,7 +23,7 @@ const ItemDetail = ({dato}) => {
       </Col>
     ))}
   </Row>
-
+  </Link>
 );
 }
 

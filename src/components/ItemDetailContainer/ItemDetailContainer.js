@@ -1,27 +1,31 @@
 import {useState, useEffect} from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import data from "../ItemListContainer/mock-data";
+import { useParams } from "react-router-dom";
 
-const producto = data.find(producto => producto.id === 1);
+const producto = data
 
 const ItemDetailContainer = () => {
 const [dato, setDato] = useState([]);
+const {detalleId} = useParams();
 
-useEffect(() => {
+
+useEffect(()=>{
   const getData = new Promise(resolve => {
     setTimeout(() => {
-        resolve(producto);
+      resolve(producto);
     }, 2000);
-});
+  });
 
-  getData.then(res => setDato(res));
-},[])
+  getData.then(res => setDato(res.find(producto => producto.id === parseInt(detalleId))));
+},[detalleId])
 
-  return (
-    <>
-      <ItemDetail dato={dato}/>
-    </>
-  );
+  
+      return (
+        <>
+          <ItemDetail dato={dato}/>
+        </>
+      );
   }
 
 export default ItemDetailContainer;

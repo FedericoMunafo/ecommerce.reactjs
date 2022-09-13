@@ -31,3 +31,10 @@ li{
 a{
     color:white;
 }
+.carritoCompras{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:darkslategray;
+    border-radius: 5px;
+}
