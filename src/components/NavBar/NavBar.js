@@ -1,6 +1,6 @@
-
 import logo from '../../components/SweetNails/LogoSweet.png'
 import './style.css'
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import CartButton from '../CardWidget/CartButton';
 
@@ -24,9 +24,6 @@ const NavBar = () => {
                         </li>
                         <li>
                             <NavLink to='categoria/servicio'>Servicio</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to='/contador'>Contador</NavLink>   
                         </li>
                     </ul>
                 </nav>

@@ -3,7 +3,7 @@ import ItemDetail from "../ItemDetail/ItemDetail";
 import data from "../ItemListContainer/mock-data";
 import { useParams } from "react-router-dom";
 
-const producto = data
+const producto = data;
 
 const ItemDetailContainer = () => {
 const [dato, setDato] = useState([]);
