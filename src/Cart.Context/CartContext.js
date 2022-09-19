@@ -9,7 +9,7 @@ const CartProvider = ({children}) => {
 
   const addProduct = (Item, newCantidad) => {
     const {cantidad = 0} = cart.find(prod => prod.id === Item.id) || {};
-    const newCart = cart.filter(prod = prod.id !== Item.id);
+    const newCart = cart.filter(prod => prod.id !== Item.id);
     setCart([...newCart, {...Item, cantidad: cantidad + newCantidad}])
   } 
   console.log('carrito:', cart);
@@ -28,7 +28,7 @@ const CartProvider = ({children}) => {
 
   const clearCart = () => setCart([]);
 
-  const isInCart = (id) => cart.find(product = product.id === id) ? true : false; 
+  const isInCart = (id) => cart.find(product => product.id === id) ? true : false; 
 
   const removeProduct = (id) => setCart(cart.filter(product => product.id !== id));
 
