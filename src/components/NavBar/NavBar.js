@@ -2,7 +2,7 @@ import logo from '../../components/SweetNails/LogoSweet.png'
 import './style.css'
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import CartButton from '../CardWidget/CartButton';
+import CartButton from '../CartWidget/CartButton'
 
 const NavBar = () => {
     return (
