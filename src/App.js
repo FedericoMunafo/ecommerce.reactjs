@@ -5,13 +5,13 @@ import Container from 'react-bootstrap/Container';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import CartWidget from './components/CartWidget/CartWidget';
-import CartProvider from './Cart.Context/CartContext';
+import { CartProvider } from './components/CartContext/CartContext';
 
 function App() {
   return (
     <>
-    <BrowserRouter>
-      <CartProvider>
+    <CartProvider>
+      <BrowserRouter>
         <NavBar className="App"/>
         <Container>
         <Routes>
@@ -21,8 +21,8 @@ function App() {
           <Route path ='/carrito' element={<CartWidget/>}/>
         </Routes>
       </Container>
-      </CartProvider>
-    </BrowserRouter>
+    </BrowserRouter>  
+    </CartProvider>
     </>
   );
 }

@@ -3,12 +3,18 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
-import { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { CartContext } from '../CartContext/CartContext';
+
+
 
 const ItemDetail = ({dato}) => {
+  const {addItem} = useContext(CartContext);
   const [irAlCarrito, setirAlCarrito] = useState(false);
+
   const onAdd = (cantidad)=>{
     setirAlCarrito(true);
+    addItem(dato, cantidad)
   }
 
   return (
