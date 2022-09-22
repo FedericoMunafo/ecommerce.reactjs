@@ -10,10 +10,10 @@ import { CartContext } from '../CartContext/CartContext';
 
 const ItemDetail = ({dato}) => {
   const {addItem} = useContext(CartContext);
-  const [irAlCarrito, setirAlCarrito] = useState(false);
+  const [ count, setCount ] = useState(parseInt(0));
 
   const onAdd = (cantidad)=>{
-    setirAlCarrito(true);
+    setCount(cantidad);
     addItem(dato, cantidad)
   }
 
@@ -28,11 +28,13 @@ const ItemDetail = ({dato}) => {
             <Card.Title><h2>{dato.title}</h2></Card.Title>
             <Card.Text>
             <p>{dato.description}</p>
-            <p>{dato.price}</p>
+            <p>${dato.price}</p>
+            <ItemCount stock={10} initial={1} onAdd={onAdd}/>
             {
-              irAlCarrito
-                ? <Link to='/carrito'>Finalizar Compra</Link>
-                : <ItemCount initial={1} stock={10} onAdd={onAdd}/>
+              count > 0 &&
+                <Link to='/carrito'>
+                <button>Finalizar Compra</button>
+                </Link>
             }
             </Card.Text>
           </Card.Body>

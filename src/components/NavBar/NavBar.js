@@ -3,6 +3,7 @@ import './style.css'
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import CartButton from '../CartWidget/CartButton'
+import { Button } from 'react-bootstrap';
 
 const NavBar = () => {
     return (
@@ -25,15 +26,13 @@ const NavBar = () => {
                         <li>
                             <NavLink to='categoria/servicio'>Servicio</NavLink>
                         </li>
+                        <li>
+                            <NavLink to='/carrito'><CartButton /></NavLink>
+                        </li>
                     </ul>
                 </nav>
             </div>
-            <div>
-                <NavLink to='/carrito'>
-                    <CartButton />
-                </NavLink>
-            </div>
-                <div><button className='boton'>Iniciar Sesión</button>{""}
+                <div><Button>Iniciar Sesión</Button>{""}
             </div>
         </div>
        
