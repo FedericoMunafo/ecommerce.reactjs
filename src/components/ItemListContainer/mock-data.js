@@ -12,7 +12,7 @@ const data = [
         title:"Set de Uñas Press On",
         description:"Set de uñas postizas reutilizables, eco-friendly, de fácil utilización y diseñada a pedido",
         price: 1000,
-        pictureUrl:"https://i.pinimg.com/736x/ba/83/88/ba83883cedd6f75ec29802b5f8b92c86.jpg",
+        pictureUrl:"https://firebasestorage.googleapis.com/v0/b/ecommerce-sweetnails.appspot.com/o/rojoPressOn.jpeg?alt=media&token=346e45ff-8ddc-4d40-8eb6-3dfd18341be8",
         stock:10,
         categoria:"producto"
     },
