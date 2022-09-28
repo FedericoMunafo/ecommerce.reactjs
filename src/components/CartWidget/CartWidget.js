@@ -23,7 +23,8 @@ const CartWidget = () => {
   }
   const queryRef = collection(db, "orders");
   addDoc(queryRef, order).then(response => {
-    setIdOrder(response.id);
+    setIdOrder(response.id)
+    clear();
   });
   } 
   
@@ -33,25 +34,37 @@ const CartWidget = () => {
 
   return (
     <div>
-      {idOrder && <p>Su orden fue creada, id {idOrder}</p>} 
-      {
-        productCartList.length > 0 ?
-        <div>
-          {productCartList.map(producto =>(
-            <>
-            <p>{producto.title}</p>
-            <p>Cantidad: {producto.cantidad}</p>
-            <p>Precio por Unidad: ${producto.price}</p>
-            <p>SubTotal: ${producto.cantidadPrecio}</p>
-            <Button onClick={()=>removeItem(producto.id)}>Eliminar del Carrito</Button>
-            </>
-          ))}
+      {idOrder ?
+      <> 
+        <p>Su orden fue creada, id {idOrder}</p>
+        <Link to ='/'>
+            Agregar Productos
+        </Link>
+      </> 
+      :
+      <div>
+        {
+          productCartList.length > 0 ?
+          <div>
+            {productCartList.map(producto =>(
+              <div>
+                <p>{producto.title}</p>
+                <p>Cantidad: {producto.cantidad}</p>
+                <p>Precio por Unidad: ${producto.price}</p>
+                <p>SubTotal: ${producto.cantidadPrecio}</p>
+                <Button onClick={()=>removeItem(producto.id)}>Eliminar del Carrito</Button>
+              </div>
+            ))}
 
             <Button onClick={clear}>Vaciar el Carrito</Button>
+            <p>Precio total:={getTotalPrice()}</p>
             <Form onSubmit={sendOrder}>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Group className="mb-3" controlId="formBasicText">
                 <Form.Label>Nombre de Usuario</Form.Label>
-                <Form.Control type="email" placeholder="Ingresar nombre de usuario" />
+                <Form.Control type="text" placeholder="Ingresar nombre de usuario" />
+                <Form.Text className="text-muted">
+                  
+                </Form.Text>
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Correo Electronico</Form.Label>
@@ -66,22 +79,24 @@ const CartWidget = () => {
                 <Form.Control type="text" placeholder="Telefono" />
               </Form.Group>
               <Button variant="primary" type="submit">
-                Submit
+                Enviar Orden
               </Button>
             </Form>
-            <p>Monto Total: ${getTotalPrice()}</p>
-        </div>
-       
-       :
-       <>
-       <p>El carrito esta vacío</p>
-       <Link to ='/'>
-          Agregar Productos
-       </Link>
-       </>
-}
-    </div>
-  );
+          {/* <p>Monto Total: ${getTotalPrice()}</p> */}
+        </div> 
+        :
+          <>
+            <p>El carrito esta vacío, agrega algunos productos</p>
+            <Link to ="/">
+                Ir al Listado de Productos
+            </Link>
+          </>
+        }
+      </div>
+      }
+      </div>  
+  )    
+
 }
 
 export default CartWidget;
