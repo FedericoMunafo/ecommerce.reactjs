@@ -10,35 +10,32 @@ const CartWidget = () => {
 
   const {productCartList, removeItem, clear, getTotalPrice}= useContext(CartContext);
   const [idOrder, setIdOrder] = useState("");
+
   const sendOrder = (event) => {
   event.preventDefault();
-  const order = {
-    buyer: {
-      name: event.target[0].value,
-      phone: event.target[1].value,
-      email: event.target[2].value
-    },
-  items: productCartList,
-  total: getTotalPrice()
+        const order = {
+          buyer: {
+            name: event.target[0].value,
+            phone: event.target[1].value,
+            email: event.target[2].value
+          },
+          items: productCartList,
+          total: getTotalPrice()
   }
   const queryRef = collection(db, "orders");
   addDoc(queryRef, order).then(response => {
-    setIdOrder(response.id)
-    clear();
+  setIdOrder(response.id)
+  clear();
   });
   } 
   
-  // const updateOrder = () => {
-  //   const queryRef = doc(db, "orders",);
-  // }
-
   return (
     <div>
       {idOrder ?
       <> 
         <p>Su orden fue creada, id {idOrder}</p>
         <Link to ='/'>
-            Agregar Productos
+            <Button>Agregar Productos</Button>
         </Link>
       </> 
       :
@@ -82,13 +79,12 @@ const CartWidget = () => {
                 Enviar Orden
               </Button>
             </Form>
-          {/* <p>Monto Total: ${getTotalPrice()}</p> */}
         </div> 
         :
           <>
             <p>El carrito esta vacío, agrega algunos productos</p>
             <Link to ="/">
-                Ir al Listado de Productos
+                <Button>Ir al Listado de Productos</Button>
             </Link>
           </>
         }

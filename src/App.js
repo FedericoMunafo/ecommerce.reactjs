@@ -6,11 +6,15 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import CartWidget from './components/CartWidget/CartWidget';
 import { CartProvider } from './components/CartContext/CartContext';
+import {Row, Col} from 'react-bootstrap';
 
 function App() {
   return (
     <>
+    <Container fluid>
     <CartProvider>
+      <Row className="justify-content-center">
+      <Col>
       <BrowserRouter>
         <NavBar className="App"/>
         <Container>
@@ -21,8 +25,11 @@ function App() {
           <Route path ='/carrito' element={<CartWidget/>}/>
         </Routes>
       </Container>
-    </BrowserRouter>  
+    </BrowserRouter>
+    </Col>
+    </Row>  
     </CartProvider>
+    </Container>
     </>
   );
 }

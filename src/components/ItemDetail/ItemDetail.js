@@ -19,7 +19,6 @@ const ItemDetail = ({dato}) => {
   }
 
   return (
-  // <Link to={`/detalle/${dato.id}`}>
   <Row xs={1} md={1} className="g-4">
     {Array.from({ length: 1 }).map((_, idx) => (
       <Col>
@@ -43,7 +42,6 @@ const ItemDetail = ({dato}) => {
       </Col>
     ))}
   </Row>
-  // </Link>
 );
 }
 
